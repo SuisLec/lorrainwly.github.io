@@ -70,24 +70,45 @@ ul { list-style: none; }
 .nav-brand {
   display: flex;
   align-items: center;
+  position: relative;
   height: 100%;
 }
 
-.nav-signature-svg {
-  height: 48px;
+.sig-img {
+  height: 38px;
   width: auto;
   display: block;
-  fill: none;
-  stroke: var(--black);
-  stroke-width: 1.6px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: transform var(--transition), stroke var(--transition);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
 }
 
-.nav-brand:hover .nav-signature-svg {
-  transform: scale(1.04);
-  stroke: var(--purple);
+.sig-dark {
+  opacity: 1;
+}
+
+.sig-purple {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-brand:hover .sig-dark {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.nav-brand:hover .sig-purple {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .sig-img {
+    height: 30px;
+  }
 }
 
 .nav-links {
