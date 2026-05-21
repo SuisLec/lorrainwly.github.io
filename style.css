@@ -118,6 +118,7 @@ ul { list-style: none; }
 .nav-links li:nth-child(2) a:hover { color: var(--google-red); }
 .nav-links li:nth-child(3) a:hover { color: var(--google-yellow); }
 .nav-links li:nth-child(4) a:hover { color: var(--google-green); }
+.nav-links li:nth-child(5) a:hover { color: var(--google-blue); }
 
 .nav-toggle {
   display: none;
@@ -966,6 +967,77 @@ a.highlight-google:hover {
 .mobile-menu li:nth-child(2) a:hover { color: var(--google-red); }
 .mobile-menu li:nth-child(3) a:hover { color: var(--google-yellow); }
 .mobile-menu li:nth-child(4) a:hover { color: var(--google-green); }
+.mobile-menu li:nth-child(5) a:hover { color: var(--google-blue); }
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+.skills-category {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.skills-category:last-child {
+  margin-bottom: 0;
+}
+
+.skills-category-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.skills-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 0.78rem;
+  color: var(--gray-600);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 680px) {
+  .skills-grid {
+    gap: 1.5rem;
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
 
 /* Unified Gradient Flow Animation */
 @keyframes google-gradient-flow {
