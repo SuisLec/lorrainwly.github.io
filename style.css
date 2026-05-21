@@ -284,37 +284,33 @@ ul { list-style: none; }
 }
 
 .highlight-purple {
-  color: #8b5cf6; /* Elegant light purple */
+  background: linear-gradient(120deg, #DFCEFF 0%, #DFCEFF 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 45%;
+  background-position: 0 88%;
+  color: #111111;
   font-weight: 500;
+  padding: 0 2px;
 }
 
 .about-link {
-  display: inline-block;
+  display: inline;
   position: relative;
   transition: color var(--transition);
 }
 
-a.about-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #8b5cf6;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+a.highlight-purple {
+  background: linear-gradient(120deg, #DFCEFF 0%, #DFCEFF 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 45%;
+  background-position: 0 88%;
+  color: #111111;
+  transition: background-size 0.25s ease-out, color 0.2s ease;
 }
 
-a.about-link:hover {
-  color: #7c3aed; /* Slightly deeper purple on hover */
-}
-
-a.about-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-  background-color: #7c3aed;
+a.highlight-purple:hover {
+  background-size: 100% 88%; /* Expands to full highlight on hover */
+  color: #4C1D95; /* Deep rich purple for readability */
 }
 
 .about-meta {
