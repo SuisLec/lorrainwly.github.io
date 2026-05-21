@@ -17,8 +17,8 @@
   --transition: 0.25s ease;
   --font-serif: 'EB Garamond', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --purple: #4C1D95;
-  --purple-hover: #3B0764;
+  --cherry: #9C1C31;
+  --cherry-hover: #7A1222;
 }
 
 /* ============================================
@@ -47,7 +47,7 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-top: 3px solid var(--purple);
+  border-top: 3px solid var(--cherry);
   border-bottom: 1px solid transparent;
   z-index: 100;
   transition: border-color var(--transition);
@@ -78,31 +78,15 @@ ul { list-style: none; }
   height: 38px;
   width: auto;
   display: block;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
+  mix-blend-mode: multiply;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), filter 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, filter;
 }
 
-.sig-dark {
-  opacity: 1;
-}
-
-.sig-purple {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.nav-brand:hover .sig-dark {
-  opacity: 0;
+.nav-brand:hover .sig-img {
   transform: scale(1.05);
-}
-
-.nav-brand:hover .sig-purple {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.05);
+  /* Precision filter converting signature.png black ink to elegant #9C1C31 Cherry Red */
+  filter: invert(16%) sepia(82%) saturate(3500%) hue-rotate(345deg) brightness(85%) contrast(100%);
 }
 
 @media (max-width: 768px) {
@@ -254,7 +238,7 @@ ul { list-style: none; }
 .social-divider {
   width: 40px;
   height: 2.5px;
-  background-color: var(--purple);
+  background-color: var(--cherry);
   margin-bottom: 1.25rem;
   border-radius: 2px;
 }
@@ -330,8 +314,8 @@ ul { list-style: none; }
   line-height: 1.85;
 }
 
-.highlight-purple {
-  color: var(--purple);
+.highlight-cherry {
+  color: var(--cherry);
   font-weight: 500;
 }
 
@@ -341,15 +325,15 @@ ul { list-style: none; }
   transition: color var(--transition);
 }
 
-a.highlight-purple {
-  border-bottom: 1px dashed rgba(76, 29, 149, 0.3);
-  color: var(--purple);
+a.highlight-cherry {
+  border-bottom: 1px dashed rgba(156, 28, 49, 0.3);
+  color: var(--cherry);
   transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
-a.highlight-purple:hover {
-  color: var(--purple-hover);
-  border-bottom-color: var(--purple-hover);
+a.highlight-cherry:hover {
+  color: var(--cherry-hover);
+  border-bottom-color: var(--cherry-hover);
 }
 
 .about-meta {
@@ -417,7 +401,7 @@ a.highlight-purple:hover {
   bottom: 0;
   width: 35px;
   height: 2.5px;
-  background-color: var(--purple);
+  background-color: var(--cherry);
   border-radius: 2px;
 }
 
@@ -452,8 +436,8 @@ a.highlight-purple:hover {
 .research-item:first-child { border-top: 1px solid var(--gray-200); }
 
 .research-item:hover {
-  background: rgba(76, 29, 149, 0.015);
-  border-left-color: var(--purple);
+  background: rgba(156, 28, 49, 0.015);
+  border-left-color: var(--cherry);
   padding-left: 2rem;
 }
 
@@ -544,7 +528,7 @@ a.highlight-purple:hover {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background-color: var(--purple);
+  background-color: var(--cherry);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -557,7 +541,7 @@ a.highlight-purple:hover {
 .project-card:hover {
   background: var(--white);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px rgba(156, 28, 49, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .section-alt .project-card {
@@ -567,7 +551,7 @@ a.highlight-purple:hover {
 .section-alt .project-card:hover {
   background: var(--white);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px rgba(156, 28, 49, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .project-header {
