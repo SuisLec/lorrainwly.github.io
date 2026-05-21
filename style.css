@@ -256,14 +256,7 @@ ul { list-style: none; }
   box-shadow: 0 4px 12px rgba(234, 67, 53, 0.15);
 }
 
-#social-rednote {
-  color: #ff2442;
-}
-#social-rednote:hover {
-  background: rgba(255, 36, 66, 0.08);
-  transform: scale(1.12) translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 36, 66, 0.15);
-}
+
 
 #social-github {
   color: #181717;
