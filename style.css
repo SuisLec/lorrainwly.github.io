@@ -211,9 +211,6 @@ ul { list-style: none; }
   max-width: 190px; /* Elegant and prominent size */
   height: auto;
   display: block;
-  mix-blend-mode: multiply; /* Clean white background out natively */
-  filter: invert(57%) sepia(50%) saturate(690%) hue-rotate(307deg) brightness(101%) contrast(90%); /* Render signature in premium Cherry Red #EE6A7B */
-  will-change: transform;
 }
 
 .photo-wrap {
