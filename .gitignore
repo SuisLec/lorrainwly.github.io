@@ -1,14 +1,41 @@
-# gitignore file for Lorrainwly personal website
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
 
-# Ignore Python scratchpad/utility scripts
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Deploy / Hosting
+.vercel/
+.vercel_build_output/
+node_modules/
+
+# Python Utility & Scrap Scripts
 *.py
 __pycache__/
 
-# Ignore raw download cache files
+# HTML Cache / Raw Downloaded Pages
 commons_page.html
 wiki_resolve.html
 *.html
 !index.html
 
-# Ignore standalone SVGs (all SVGs are fully inlined inside index.html)
+# Raw SVG Logo Assets (All icons are fully inlined inside index.html)
 *.svg
+
+# Old Hashed Image Assets (Replaced by photo_1.jpg through photo_7.jpg)
+fa8f7efa48659dfbf43246a259e59cf2.jpg
+1c5bb86a6bec8971c53ad8f74fbaf515.jpg
+c3293d3b0193b7ff73a6ca7052a67ccd.jpg
+158fb36f3ec3c1f95bc76eadee7ebd32.jpg
+15a22fbe3b873a5511fabecefeedb8a7.jpg
+fa4ce357cd3afb0917cd16042886bd9d.jpg
+092dfdb163dc5e324b05a5c03dd318f0.jpg
+
+
