@@ -465,6 +465,59 @@ a.highlight-google:hover {
 /* ============================================
    RESEARCH SECTION
    ============================================ */
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+.research-image-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.research-photo-wrap {
+  background: var(--white);
+  padding: 12px;
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.03);
+  animation: subtle-swing 6s ease-in-out infinite;
+  transform-origin: 50% 0%; /* Hangs from top-center */
+  max-width: 280px;
+  width: 100%;
+}
+
+.research-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes subtle-swing {
+  0% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+  100% {
+    transform: rotate(-1.5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .research-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+  .research-photo-wrap {
+    max-width: 240px;
+  }
+}
+
 .research-list {
   display: flex;
   flex-direction: column;
