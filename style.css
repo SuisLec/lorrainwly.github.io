@@ -17,8 +17,10 @@
   --transition: 0.25s ease;
   --font-serif: 'EB Garamond', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --cherry: #EE6A7B;
-  --cherry-hover: #D75566;
+  --google-blue: #4285F4;
+  --google-red: #EA4335;
+  --google-yellow: #FBBC05;
+  --google-green: #34A853;
 }
 
 /* ============================================
@@ -47,7 +49,8 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-top: 3px solid var(--cherry);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(to right, var(--google-blue) 25%, var(--google-red) 25% 50%, var(--google-yellow) 50% 75%, var(--google-green) 75%) 1;
   border-bottom: 1px solid transparent;
   z-index: 100;
   transition: border-color var(--transition);
@@ -85,8 +88,8 @@ ul { list-style: none; }
 
 .nav-brand:hover .sig-img {
   transform: scale(1.05);
-  /* High-precision filter converting black ink to premium pink #EE6A7B */
-  filter: invert(57%) sepia(50%) saturate(690%) hue-rotate(307deg) brightness(101%) contrast(90%);
+  /* High-precision filter converting black ink to Google Blue #4285F4 */
+  filter: invert(42%) sepia(77%) saturate(1352%) hue-rotate(202deg) brightness(97%) contrast(93%);
 }
 
 @media (max-width: 768px) {
@@ -254,11 +257,11 @@ ul { list-style: none; }
 
 /* Social Icons */
 .social-divider {
-  width: 40px;
-  height: 2.5px;
-  background-color: var(--cherry);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, var(--google-blue) 25%, var(--google-red) 25% 50%, var(--google-yellow) 50% 75%, var(--google-green) 75%);
   margin-bottom: 1.25rem;
-  border-radius: 2px;
+  border-radius: 1.5px;
 }
 
 .social-icons {
@@ -332,8 +335,7 @@ ul { list-style: none; }
   line-height: 1.85;
 }
 
-.highlight-cherry {
-  color: var(--cherry);
+.highlight-google {
   font-weight: 500;
 }
 
@@ -343,16 +345,22 @@ ul { list-style: none; }
   transition: color var(--transition);
 }
 
-a.highlight-cherry {
-  border-bottom: 1px dashed rgba(156, 28, 49, 0.3);
-  color: var(--cherry);
+a.highlight-google {
+  border-bottom: 1px dashed rgba(66, 133, 244, 0.3);
+  color: var(--google-blue);
   transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
-a.highlight-cherry:hover {
-  color: var(--cherry-hover);
-  border-bottom-color: var(--cherry-hover);
+a.highlight-google:hover {
+  color: var(--google-red);
+  border-bottom-color: var(--google-red);
 }
+
+/* Google Color Utility Classes */
+.google-blue { color: var(--google-blue); }
+.google-red { color: var(--google-red); }
+.google-yellow { color: var(--google-yellow); }
+.google-green { color: var(--google-green); }
 
 .about-meta {
   display: flex;
@@ -417,10 +425,10 @@ a.highlight-cherry:hover {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 35px;
-  height: 2.5px;
-  background-color: var(--cherry);
-  border-radius: 2px;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, var(--google-blue) 25%, var(--google-red) 25% 50%, var(--google-yellow) 50% 75%, var(--google-green) 75%);
+  border-radius: 1.5px;
 }
 
 .section-intro {
@@ -454,8 +462,8 @@ a.highlight-cherry:hover {
 .research-item:first-child { border-top: 1px solid var(--gray-200); }
 
 .research-item:hover {
-  background: rgba(156, 28, 49, 0.015);
-  border-left-color: var(--cherry);
+  background: rgba(66, 133, 244, 0.015);
+  border-left-color: var(--google-blue);
   padding-left: 2rem;
 }
 
@@ -546,7 +554,7 @@ a.highlight-cherry:hover {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background-color: var(--cherry);
+  background-color: var(--google-blue);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -559,7 +567,7 @@ a.highlight-cherry:hover {
 .project-card:hover {
   background: var(--white);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(156, 28, 49, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px rgba(66, 133, 244, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .section-alt .project-card {
@@ -569,7 +577,7 @@ a.highlight-cherry:hover {
 .section-alt .project-card:hover {
   background: var(--white);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(156, 28, 49, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px rgba(66, 133, 244, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .project-header {
@@ -652,23 +660,16 @@ a.highlight-cherry:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+#contact-email-1:hover {
+  color: var(--google-blue);
+  border-color: var(--google-blue);
+  background: rgba(66, 133, 244, 0.03);
+}
 
-#contact-email:hover {
-  color: #ea4335;
-  border-color: #ea4335;
+#contact-email-2:hover {
+  color: var(--google-red);
+  border-color: var(--google-red);
   background: rgba(234, 67, 53, 0.03);
-}
-
-#contact-x:hover {
-  color: #000000;
-  border-color: #000000;
-  background: rgba(0, 0, 0, 0.03);
-}
-
-#contact-github:hover {
-  color: #181717;
-  border-color: #181717;
-  background: rgba(24, 23, 23, 0.03);
 }
 
 /* ============================================
@@ -730,8 +731,8 @@ a.highlight-cherry:hover {
 
 .section-heading-line {
   flex-grow: 1;
-  height: 1px;
-  background: linear-gradient(to right, var(--cherry) 0%, rgba(238, 106, 123, 0.25) 40%, transparent 100%);
+  height: 2px;
+  background: linear-gradient(to right, var(--google-blue), var(--google-red), var(--google-yellow), var(--google-green), transparent 80%);
   margin-left: 2rem;
 }
 
@@ -798,7 +799,7 @@ a.highlight-cherry:hover {
 /* Interactive lift and scale animation */
 .photo-card:hover .photo-img-wrap {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(238, 106, 123, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 20px 40px rgba(66, 133, 244, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 /* Soft transition of white vignetting to reveal more edge details on hover */
