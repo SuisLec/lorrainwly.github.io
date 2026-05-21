@@ -55,12 +55,7 @@ ul { list-style: none; }
 }
 
 #navbar::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: #4c1d95; /* Premium solid dark purple accent line */
-  z-index: 101;
+  display: none;
 }
 
 #navbar.scrolled {
