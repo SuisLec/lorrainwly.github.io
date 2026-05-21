@@ -59,15 +59,7 @@ ul { list-style: none; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, 
-    var(--google-blue), 
-    var(--google-red), 
-    var(--google-yellow), 
-    var(--google-green),
-    var(--google-blue)
-  );
-  background-size: 200% 100%;
-  animation: google-gradient-flow 12s linear infinite;
+  background: #7c3aed; /* Premium solid purple accent line */
   z-index: 101;
 }
 
