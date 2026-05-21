@@ -17,8 +17,8 @@
   --transition: 0.25s ease;
   --font-serif: 'EB Garamond', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --cherry: #9C1C31;
-  --cherry-hover: #7A1222;
+  --cherry: #EE6A7B;
+  --cherry-hover: #D75566;
 }
 
 /* ============================================
@@ -85,8 +85,8 @@ ul { list-style: none; }
 
 .nav-brand:hover .sig-img {
   transform: scale(1.05);
-  /* Precision filter converting signature.png black ink to elegant #9C1C31 Cherry Red */
-  filter: invert(16%) sepia(82%) saturate(3500%) hue-rotate(345deg) brightness(85%) contrast(100%);
+  /* High-precision filter converting black ink to premium pink #EE6A7B */
+  filter: invert(57%) sepia(50%) saturate(690%) hue-rotate(307deg) brightness(101%) contrast(90%);
 }
 
 @media (max-width: 768px) {
