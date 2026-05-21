@@ -284,7 +284,7 @@ ul { list-style: none; }
 }
 
 .highlight-purple {
-  color: #6D28D9; /* Rich academic dark purple */
+  color: #4C1D95; /* Rich royal deep purple directly */
   font-weight: 500;
 }
 
@@ -295,14 +295,14 @@ ul { list-style: none; }
 }
 
 a.highlight-purple {
-  border-bottom: 1px dashed rgba(109, 40, 217, 0.4);
-  color: #6D28D9;
+  border-bottom: 1px dashed rgba(76, 29, 149, 0.4);
+  color: #4C1D95;
   transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
 a.highlight-purple:hover {
-  color: #4C1D95; /* Deeper royal purple on hover */
-  border-bottom-color: #4C1D95;
+  color: #3B0764; /* Even deeper/richer purple on hover */
+  border-bottom-color: #3B0764;
 }
 
 .about-meta {
