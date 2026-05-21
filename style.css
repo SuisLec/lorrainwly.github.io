@@ -195,6 +195,27 @@ ul { list-style: none; }
   align-items: flex-start;
 }
 
+.profile-sig-container {
+  width: 100%;
+  max-width: var(--photo-w);
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  pointer-events: none; /* Clicking has no effect */
+  user-select: none; /* Static and non-interactive */
+}
+
+.profile-sig-img {
+  width: 100%;
+  max-width: 190px; /* Elegant and prominent size */
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply; /* Clean white background out natively */
+  filter: invert(57%) sepia(50%) saturate(690%) hue-rotate(307deg) brightness(101%) contrast(90%); /* Render signature in premium Cherry Red #EE6A7B */
+  will-change: transform;
+}
+
 .photo-wrap {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -705,6 +726,15 @@ a.highlight-cherry:hover {
     grid-template-columns: 1fr;
     gap: 2.5rem;
     padding: 3rem 1.5rem;
+  }
+
+  .profile-sig-container {
+    max-width: 160px;
+    margin-bottom: 1rem;
+  }
+
+  .profile-sig-img {
+    max-width: 140px;
   }
 
   .photo-wrap {
