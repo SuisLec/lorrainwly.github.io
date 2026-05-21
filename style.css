@@ -745,23 +745,30 @@ a.highlight-cherry:hover {
   position: relative;
 }
 
-/* The photo-card acts as a professional museum exhibition matte board */
+/* The photo-card acts as a borderless transparent mount */
 .photo-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: 2px;
-  /* Balanced margins for print mat board aesthetic (wider space at bottom) */
-  padding: 1.25rem 1.25rem 4.5rem 1.25rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.4s ease, 
-              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: default;
   position: relative;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.01);
+}
+
+/* Dynamic shrink-to-fit container holding the image and its vignette overlay */
+.photo-img-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
 
 /* EXACT natural proportions preserved! Absolutely ZERO crop. */
@@ -771,68 +778,32 @@ a.highlight-cherry:hover {
   max-width: 100%;
   object-fit: contain;
   display: block;
-  border: 1px solid rgba(0, 0, 0, 0.04); /* Fine inner framing line on the print border */
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.photo-card:hover {
-  border-color: var(--cherry);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(238, 106, 123, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
-}
-
-.photo-card:hover img {
-  transform: scale(1.015); /* Micro-scale to emulate physical card elevation without blur */
-}
-
-/* Minimalist static card label inside the mount bottom margins */
-.photo-info {
+/* absolute vignette overlay that feathers image edges seamlessly to pure white background */
+.photo-fade-overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  height: 4.5rem;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--white);
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  bottom: 0;
+  /* Thick inset box-shadow using var(--white) to dissolve image edges into the white background */
+  box-shadow: inset 0 0 24px 18px var(--white);
+  pointer-events: none;
   z-index: 2;
-  transition: background 0.4s ease;
+  transition: box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.photo-card:hover .photo-info {
-  background: rgba(255, 255, 255, 0.96);
+/* Interactive lift and scale animation */
+.photo-card:hover .photo-img-wrap {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(238, 106, 123, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
-.photo-tag {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--gray-600);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* Dynamic vertical divider line that expands on hover */
-.photo-divider-line {
-  width: 1px;
-  height: 10px;
-  background: var(--gray-200);
-  margin: 0 1rem;
-  transition: height 0.4s ease, background 0.4s ease;
-}
-
-.photo-card:hover .photo-divider-line {
-  height: 18px;
-  background: var(--cherry);
-}
-
-.photo-lens {
-  font-size: 0.72rem;
-  font-family: var(--font-sans);
-  color: var(--gray-400);
-  letter-spacing: 0.04em;
+/* Soft transition of white vignetting to reveal more edge details on hover */
+.photo-card:hover .photo-fade-overlay {
+  box-shadow: inset 0 0 12px 8px var(--white);
 }
 
 /* Dynamic staggered scroll entrance animations */
@@ -870,15 +841,11 @@ a.highlight-cherry:hover {
   }
 
   .photo-card {
-    padding: 1rem 1rem 4rem 1rem;
+    padding: 0;
   }
 
   .photo-card img {
     height: 250px;
-  }
-
-  .photo-info {
-    height: 4rem;
   }
 }
 
@@ -923,7 +890,13 @@ a.highlight-cherry:hover {
 
   .photo-card {
     width: 100%;
-    padding: 1rem 1rem 4rem 1rem;
+    padding: 0;
+  }
+
+  .photo-img-wrap {
+    width: 100%;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
   }
 
   /* Full bleed scale on mobile touchscreens with zero scaling crop */
