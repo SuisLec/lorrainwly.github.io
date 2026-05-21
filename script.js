@@ -37,7 +37,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // Fade-up scroll animation
 const fadeEls = document.querySelectorAll(
-  '.research-item, .project-card, .about-right, .contact-container'
+  '.research-item, .project-card, .about-right, .contact-container, .photo-card'
 );
 fadeEls.forEach(el => el.classList.add('fade-up'));
 
