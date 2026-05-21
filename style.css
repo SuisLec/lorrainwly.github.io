@@ -17,6 +17,8 @@
   --transition: 0.25s ease;
   --font-serif: 'EB Garamond', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --purple: #4C1D95;
+  --purple-hover: #3B0764;
 }
 
 /* ============================================
@@ -45,6 +47,7 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border-top: 3px solid var(--purple);
   border-bottom: 1px solid transparent;
   z-index: 100;
   transition: border-color var(--transition);
@@ -212,6 +215,14 @@ ul { list-style: none; }
 }
 
 /* Social Icons */
+.social-divider {
+  width: 40px;
+  height: 2.5px;
+  background-color: var(--purple);
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
+}
+
 .social-icons {
   display: flex;
   gap: 0.85rem;
@@ -284,7 +295,7 @@ ul { list-style: none; }
 }
 
 .highlight-purple {
-  color: #4C1D95; /* Rich royal deep purple directly */
+  color: var(--purple);
   font-weight: 500;
 }
 
@@ -295,14 +306,14 @@ ul { list-style: none; }
 }
 
 a.highlight-purple {
-  border-bottom: 1px dashed rgba(76, 29, 149, 0.4);
-  color: #4C1D95;
+  border-bottom: 1px dashed rgba(76, 29, 149, 0.3);
+  color: var(--purple);
   transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
 a.highlight-purple:hover {
-  color: #3B0764; /* Even deeper/richer purple on hover */
-  border-bottom-color: #3B0764;
+  color: var(--purple-hover);
+  border-bottom-color: var(--purple-hover);
 }
 
 .about-meta {
@@ -357,8 +368,21 @@ a.highlight-purple:hover {
   font-size: 2rem;
   font-weight: 400;
   color: var(--black);
-  margin-bottom: 0.6rem;
+  margin-bottom: 1.25rem;
   letter-spacing: -0.01em;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 35px;
+  height: 2.5px;
+  background-color: var(--purple);
+  border-radius: 2px;
 }
 
 .section-intro {
@@ -382,12 +406,20 @@ a.highlight-purple:hover {
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 2rem;
-  padding: 2.5rem 0;
+  padding: 2.5rem 1.5rem;
+  margin: 0 -1.5rem;
   border-bottom: 1px solid var(--gray-200);
-  transition: background var(--transition);
+  border-left: 3px solid transparent;
+  transition: background var(--transition), border-left-color var(--transition), padding-left var(--transition);
 }
 
 .research-item:first-child { border-top: 1px solid var(--gray-200); }
+
+.research-item:hover {
+  background: rgba(76, 29, 149, 0.015);
+  border-left-color: var(--purple);
+  padding-left: 2rem;
+}
 
 .research-year {
   font-size: 0.8rem;
@@ -465,13 +497,42 @@ a.highlight-purple:hover {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: background var(--transition);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   cursor: default;
+  position: relative;
+  overflow: hidden;
 }
 
-.project-card:hover { background: var(--gray-100); }
-.section-alt .project-card { background: var(--gray-100); }
-.section-alt .project-card:hover { background: var(--white); }
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background-color: var(--purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card:hover {
+  background: var(--white);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.section-alt .project-card {
+  background: var(--gray-100);
+}
+
+.section-alt .project-card:hover {
+  background: var(--white);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
 
 .project-header {
   display: flex;
