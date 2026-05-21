@@ -17,8 +17,8 @@
   --transition: 0.25s ease;
   --font-serif: 'EB Garamond', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --purple: #4C1D95;
-  --purple-hover: #3B0764;
+  --purple: #9966CB;
+  --purple-hover: #804db3;
 }
 
 /* ============================================
@@ -89,6 +89,26 @@ ul { list-style: none; }
 }
 
 .nav-links a:hover { color: var(--black); }
+
+.nav-signature-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-signature {
+  height: 32px;
+  width: auto;
+  display: block;
+  opacity: 0.9;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.nav-signature:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
 
 .nav-toggle {
   display: none;
@@ -306,7 +326,7 @@ ul { list-style: none; }
 }
 
 a.highlight-purple {
-  border-bottom: 1px dashed rgba(76, 29, 149, 0.3);
+  border-bottom: 1px dashed rgba(153, 102, 203, 0.3);
   color: var(--purple);
   transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
@@ -416,7 +436,7 @@ a.highlight-purple:hover {
 .research-item:first-child { border-top: 1px solid var(--gray-200); }
 
 .research-item:hover {
-  background: rgba(76, 29, 149, 0.015);
+  background: rgba(153, 102, 203, 0.015);
   border-left-color: var(--purple);
   padding-left: 2rem;
 }
@@ -521,7 +541,7 @@ a.highlight-purple:hover {
 .project-card:hover {
   background: var(--white);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px rgba(153, 102, 203, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .section-alt .project-card {
@@ -531,7 +551,7 @@ a.highlight-purple:hover {
 .section-alt .project-card:hover {
   background: var(--white);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px rgba(153, 102, 203, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .project-header {
@@ -705,6 +725,10 @@ a.highlight-purple:hover {
     flex-direction: column;
     gap: 0.25rem;
     text-align: center;
+  }
+
+  .nav-signature {
+    height: 26px;
   }
 
   .container, .nav-inner { padding-inline: 1.5rem; }
