@@ -49,11 +49,26 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-top: 4px solid transparent;
-  border-image: linear-gradient(to right, var(--google-blue) 25%, var(--google-red) 25% 50%, var(--google-yellow) 50% 75%, var(--google-green) 75%) 1;
   border-bottom: 1px solid transparent;
   z-index: 100;
   transition: border-color var(--transition);
+}
+
+#navbar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--google-blue), 
+    var(--google-red), 
+    var(--google-yellow), 
+    var(--google-green),
+    var(--google-blue)
+  );
+  background-size: 200% 100%;
+  animation: google-gradient-flow 12s linear infinite;
+  z-index: 101;
 }
 
 #navbar.scrolled {
@@ -112,6 +127,10 @@ ul { list-style: none; }
 }
 
 .nav-links a:hover { color: var(--black); }
+.nav-links li:nth-child(1) a:hover { color: var(--google-blue); }
+.nav-links li:nth-child(2) a:hover { color: var(--google-red); }
+.nav-links li:nth-child(3) a:hover { color: var(--google-yellow); }
+.nav-links li:nth-child(4) a:hover { color: var(--google-green); }
 
 .nav-toggle {
   display: none;
@@ -259,7 +278,15 @@ ul { list-style: none; }
 .social-divider {
   width: 50px;
   height: 3px;
-  background: linear-gradient(to right, var(--google-blue) 25%, var(--google-red) 25% 50%, var(--google-yellow) 50% 75%, var(--google-green) 75%);
+  background: linear-gradient(90deg, 
+    var(--google-blue), 
+    var(--google-red), 
+    var(--google-yellow), 
+    var(--google-green),
+    var(--google-blue)
+  );
+  background-size: 200% 100%;
+  animation: google-gradient-flow 12s linear infinite;
   margin-bottom: 1.25rem;
   border-radius: 1.5px;
 }
@@ -427,7 +454,15 @@ a.highlight-google:hover {
   bottom: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(to right, var(--google-blue) 25%, var(--google-red) 25% 50%, var(--google-yellow) 50% 75%, var(--google-green) 75%);
+  background: linear-gradient(90deg, 
+    var(--google-blue), 
+    var(--google-red), 
+    var(--google-yellow), 
+    var(--google-green),
+    var(--google-blue)
+  );
+  background-size: 200% 100%;
+  animation: google-gradient-flow 12s linear infinite;
   border-radius: 1.5px;
 }
 
@@ -732,8 +767,18 @@ a.highlight-google:hover {
 .section-heading-line {
   flex-grow: 1;
   height: 2px;
-  background: linear-gradient(to right, var(--google-blue), var(--google-red), var(--google-yellow), var(--google-green), transparent 80%);
+  background: linear-gradient(90deg, 
+    var(--google-blue), 
+    var(--google-red), 
+    var(--google-yellow), 
+    var(--google-green),
+    var(--google-blue)
+  );
+  background-size: 200% 100%;
+  animation: google-gradient-flow 12s linear infinite;
   margin-left: 2rem;
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 85%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 85%);
 }
 
 /* Flex art gallery layout - automatically packs images side-by-side using natural widths */
@@ -919,4 +964,24 @@ a.highlight-google:hover {
   }
 
   .container, .nav-inner { padding-inline: 1.5rem; }
+}
+
+/* Footer Link Interactive Hovers */
+.footer-link {
+  transition: color var(--transition);
+}
+.footer-link:hover {
+  color: var(--google-blue);
+}
+
+/* Mobile Menu Hover Accent Colors */
+.mobile-menu li:nth-child(1) a:hover { color: var(--google-blue); }
+.mobile-menu li:nth-child(2) a:hover { color: var(--google-red); }
+.mobile-menu li:nth-child(3) a:hover { color: var(--google-yellow); }
+.mobile-menu li:nth-child(4) a:hover { color: var(--google-green); }
+
+/* Unified Gradient Flow Animation */
+@keyframes google-gradient-flow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: -200% 0%; }
 }
