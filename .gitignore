@@ -1,0 +1,14 @@
+# gitignore file for Lorrainwly personal website
+
+# Ignore Python scratchpad/utility scripts
+*.py
+__pycache__/
+
+# Ignore raw download cache files
+commons_page.html
+wiki_resolve.html
+*.html
+!index.html
+
+# Ignore standalone SVGs (all SVGs are fully inlined inside index.html)
+*.svg
