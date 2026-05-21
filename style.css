@@ -284,33 +284,25 @@ ul { list-style: none; }
 }
 
 .highlight-purple {
-  background: linear-gradient(120deg, #DFCEFF 0%, #DFCEFF 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 45%;
-  background-position: 0 88%;
-  color: #111111;
+  color: #6D28D9; /* Rich academic dark purple */
   font-weight: 500;
-  padding: 0 2px;
 }
 
 .about-link {
-  display: inline;
+  display: inline-block;
   position: relative;
   transition: color var(--transition);
 }
 
 a.highlight-purple {
-  background: linear-gradient(120deg, #DFCEFF 0%, #DFCEFF 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 45%;
-  background-position: 0 88%;
-  color: #111111;
-  transition: background-size 0.25s ease-out, color 0.2s ease;
+  border-bottom: 1px dashed rgba(109, 40, 217, 0.4);
+  color: #6D28D9;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
 a.highlight-purple:hover {
-  background-size: 100% 88%; /* Expands to full highlight on hover */
-  color: #4C1D95; /* Deep rich purple for readability */
+  color: #4C1D95; /* Deeper royal purple on hover */
+  border-bottom-color: #4C1D95;
 }
 
 .about-meta {
