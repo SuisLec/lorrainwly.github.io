@@ -59,7 +59,7 @@ ul { list-style: none; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: #7c3aed; /* Premium solid purple accent line */
+  background: #4c1d95; /* Premium solid dark purple accent line */
   z-index: 101;
 }
 
