@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (!brand) return;
 
   const img = new Image();
-  img.src = 'signature.jpg';
+  img.src = 'signature.png';
   img.onload = () => {
     try {
       const canvas = document.createElement('canvas');
@@ -75,9 +75,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
       const imgData = ctx.getImageData(0, 0, targetW, targetH);
       const data = imgData.data;
-      const threshold = 50;
+      const threshold = 150; // Dark ink on light background
 
-      // 1. Find bounding box of active pixels (white signature on black background)
+      // 1. Find bounding box of active pixels (dark handwriting)
       let minX = targetW, minY = targetH, maxX = 0, maxY = 0;
       for (let y = 0; y < targetH; y++) {
         for (let x = 0; x < targetW; x++) {
@@ -85,8 +85,12 @@ window.addEventListener('DOMContentLoaded', () => {
           const r = data[idx];
           const g = data[idx+1];
           const b = data[idx+2];
+          const a = data[idx+3];
           const gray = 0.299 * r + 0.587 * g + 0.114 * b;
-          if (gray > threshold) {
+          
+          // Pixel is active if it's opaque enough and dark enough
+          const isActive = (a > 30) && (gray < threshold);
+          if (isActive) {
             if (x < minX) minX = x;
             if (y < minY) minY = y;
             if (x > maxX) maxX = x;
@@ -112,8 +116,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const r = data[idx];
             const g = data[idx+1];
             const b = data[idx+2];
+            const a = data[idx+3];
             const gray = 0.299 * r + 0.587 * g + 0.114 * b;
-            if (gray > threshold) isActive = true;
+            isActive = (a > 30) && (gray < threshold);
           }
           if (isActive) {
             if (!inSpan) {
